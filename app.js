@@ -12,20 +12,34 @@ app.set('view engine', 'pug');
 // Pour récupérer les paramètres du formulaire
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Définition des routes
+/*
+ Définition des routes 
+*/
+// Page d'accueil
 app.get('/', function (req, res) {
   res.render('index', { title: 'Qui prend quoi ?' });
 });
 
+// Rediriger le POST vers la page événement
 app.post('/party', function (req, res) {
-  res.send(axios
+  axios
     .post(`${process.env.API_URL}/party`, req.body)
-    .then(({ data }) => console.log(data))
-    .catch((err) => console.error(err)));
+    .then(({ data }) => res.redirect(`/party/${data._id}`))
+    .catch((err) => res.send(err));
 });
 
+// Page d'évènement
 app.get('/party/:id', function (req, res) {
-  res.render('party', { title: 'Évènements' });
+  // console.log('ID de l\'event : ', req.params.id)
+  axios
+    .get(`${process.env.API_URL}/party/${req.params.id}`)
+    .then(({ data }) =>
+      res.render('party', {
+        party: data,
+        title: data.name
+      }),
+    )
+    .catch((err) => console.log(err));
 });
 
 app.listen(port, () => console.log(`Front app listening on port ${port}!`));
