@@ -1,0 +1,16 @@
+include ./partials/header.pug
+
+h1 Qui prend quoi ?
+h2 Créer un événement
+form(method="post" action="/party")
+  div
+    fieldset
+      label(for="name") Nom de l'événement
+      input(name="name" id="name" required minlength="3" placeholder="Thanksgiving")
+    fieldset
+      label(for="author") Auteur de l'évènement
+      input(name="author" id="author" required minlength="2" placeholder="John Snow")
+    fieldset
+      label(for="date") Date de l'évènement
+      input(name="date" id="date" type="date" required)
+  button(type="submit") Créer
