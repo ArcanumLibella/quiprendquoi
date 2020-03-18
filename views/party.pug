@@ -1,5 +1,17 @@
 include ./partials/header.pug
 
-h1 Qui prend quoi ?
-h2= party.name
-h3 Créé par #{party.author}
+main.content-wrapper.party
+  h1 Qui prend quoi ?
+  h2= party.name
+  h3 Créé par #{party.author}
+
+  label(for="url") Partagez l'événement
+  input(id="url" value=`${url}`)
+
+  h3 Ajouter un produit à liste :
+  include ./partials/addItem.pug
+
+  h3 Produits apportés
+  ul.items
+    each item in party.items
+      li= item.name

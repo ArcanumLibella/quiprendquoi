@@ -1,0 +1,5 @@
+form(method="post" action=`/party/${party._id}/items`).newParty
+  div.newParty__fields
+    label(for="itemName") Nom du produit
+    input(name="itemName" id="itemName" required minlength="2" placeholder="Moelleux au chocolat")
+    button(type="submit") Ajouter

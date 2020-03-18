@@ -12,6 +12,9 @@ app.set('view engine', 'pug');
 // Pour récupérer les paramètres du formulaire
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Pour servir tout le dossier public de façon statique
+app.use(express.static('public'));
+
 /*
  Définition des routes 
 */
@@ -36,10 +39,22 @@ app.get('/party/:id', function (req, res) {
     .then(({ data }) =>
       res.render('party', {
         party: data,
-        title: data.name
+        title: data.name,
+        url: `${process.env.FRONT_URL}:${port}/party/${data._id}`
       }),
     )
     .catch((err) => console.log(err));
+});
+
+// Rediriger le POST vers la page événement après l'ajout d'un produit
+app.post('/party/:id/items', function (req, res) {
+  // console.log('item : ', req.body);
+  axios
+    .post(`${process.env.API_URL}/party/${req.params.id}/items`, req.body)
+    // .then(({ data }) => console.log(data))
+    // .then(({ data }) => console.log("items -> ", party.items))
+    .then(({ data }) => res.redirect(`/party/${req.params.id}`))
+    .catch((err) => res.send(err));
 });
 
 app.listen(port, () => console.log(`Front app listening on port ${port}!`));

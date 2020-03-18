@@ -1,0 +1,36 @@
+$font: Arial, Helvetica, sans-serif;
+body {
+  font-family: $font;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 900;
+
+  @include medium {
+    font-size: 32px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 32px;
+}
+
+h4 {
+
+}
+
+p {
+
+}
+
+label {
+  font-weight: 600;
+}

@@ -1,0 +1,71 @@
+.newParty {
+  margin-top: 30px;
+  padding: 32px;
+  border-radius: 8px;
+  border: 3px solid $purple;
+
+  .party & {
+    margin-top: 8px;
+    padding: 0;
+  }
+
+  &__fields {
+    margin-bottom: 1em;
+    padding: 8px;
+
+    .party & {
+      margin-bottom: 0;
+    }
+  
+    @include medium {
+      display: grid;
+      grid-template-columns: 175px 1fr;
+      grid-gap: 16px;
+      max-width: 500px;
+
+      .party & {
+        grid-template-columns: 175px 1fr 1fr;
+        max-width: 100%;
+      }
+    }
+  
+    label {
+      display: flex;
+      align-items: center;
+      height: 32px;
+      width: 100%;
+
+      @include medium {
+        place-self: center end;
+      }
+    }
+
+    input {
+      height: 32px;
+      width: 100%;
+      border: none;
+      background: none;
+      color: grey;
+      outline: none;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      margin-top: 16px;
+      padding: 8px 32px;
+      font-weight: bold;
+      background: $purple;
+      color: white;
+      border: none;
+      border-radius: 5px;
+
+      .party & {
+
+        @include medium {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
