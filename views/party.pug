@@ -21,5 +21,8 @@ main.content-wrapper.party
 
   h3 Produits apportés
   ul.items
-    each item in party.items
-      li= item.name
+    if(party.items)
+      each item in party.items
+        li= item.name
+      else
+        li Aucun produit n'a été ajouté pour le moment

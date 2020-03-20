@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Pour servir tout le dossier public de façon statique
 app.use(express.static('public'));
+app.use(express.static('pwa'));
 
 /*
  Définition des routes 
