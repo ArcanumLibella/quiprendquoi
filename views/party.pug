@@ -5,8 +5,16 @@ main.content-wrapper.party
   h2= party.name
   h3 Créé par #{party.author}
 
-  label(for="url") Partagez l'événement
-  input(id="url" value=`${url}`)
+  fielset.share
+    label(for="url") Partagez l'événement
+    input(
+      id="url" 
+      value=`${url}` 
+      data-clipboard=`${url}`
+      data-share-url=`${url}`
+      data-share-title=`${party.name}`
+      data-share-text=`${party.author + ` vous invite a rejoindre l'événement ` + party.name}`
+    )
 
   h3 Ajouter un produit à liste :
   include ./partials/addItem.pug

@@ -36,3 +36,22 @@ h1 {
   }
 }
 
+button {
+  display: inline-block;
+  padding: 8px 32px;
+  font-weight: bold;
+  background: $purple;
+  color: white;
+  border: none;
+  border-radius: 5px;
+
+  .party & {
+    @include medium {
+      margin-top: 0;
+    }
+  }
+
+  .share & {
+    margin: 0 10px;
+  }
+}

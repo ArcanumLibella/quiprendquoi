@@ -53,19 +53,6 @@
       display: block;
       width: 100%;
       margin-top: 16px;
-      padding: 8px 32px;
-      font-weight: bold;
-      background: $purple;
-      color: white;
-      border: none;
-      border-radius: 5px;
-
-      .party & {
-
-        @include medium {
-          margin-top: 0;
-        }
-      }
     }
   }
 }
