@@ -1,31 +1,22 @@
+// VENDORS
 @import 'vendors/reset.scss';
 
+// CONFIG
 @import 'config/variables.scss';
 @import 'config/medias.scss';
 @import 'config/typography.scss';
 
+// BLOCS / COMPONENTS
 @import 'blocs/newParty.scss';
+@import 'blocs/items.scss';
+
+// PAGES
+@import 'pages/party.scss';
 
 .content-wrapper {
   padding: 16px;
   max-width: 800px;
   margin: 0 auto;
-}
-
-.party {
-  label[for="url"] {
-    margin-right: 16px;
-  }
-
-  h3 {
-    margin-top: 32px;
-  }
-}
-
-.items {
-  li {
-    margin-left: 16px;
-  }
 }
 
 h1 {

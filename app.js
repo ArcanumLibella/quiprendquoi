@@ -48,14 +48,13 @@ app.get('/party/:id', function (req, res) {
 });
 
 // Rediriger le POST vers la page événement après l'ajout d'un produit
-app.post('/party/:id/items', function (req, res) {
+app.post("/party/:id/items", function (req, res) {
   // console.log('item : ', req.body);
+
   axios
     .post(`${process.env.API_URL}/party/${req.params.id}/items`, req.body)
-    // .then(({ data }) => console.log(data))
-    // .then(({ data }) => console.log("items -> ", party.items))
-    .then(({ data }) => res.redirect(`/party/${req.params.id}`))
-    .catch((err) => res.send(err));
+    .then(() => res.redirect(`/party/${req.params.id}`))
+    .catch(err => res.send(err));
 });
 
 app.listen(port, () => console.log(`Front app listening on port ${port}!`));
